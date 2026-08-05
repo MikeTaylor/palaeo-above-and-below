@@ -6,7 +6,7 @@ included in the git repo.
 
 Within that directory, the "above" views are in 04-wednesday
 
-Within THAT directory:
+Within _that_ directory:
 * canon is all above shots
 * iphone/1 - balcony shots of mounts/ is all above shots
 * iphone/5 - videos/IMG_9861.MOV is our only video from the balcony
