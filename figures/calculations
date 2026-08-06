@@ -18,3 +18,26 @@ We must increase Diplodocus by 373/360 = 103.6%
 Diplodocus  torso is 1178 px long
 Apatosaurus torso is 1307 px long
 	=> Factor of 1307/1178 = 1.10950764006791171477
+		DONE
+
+===============================================================================
+
+
+Figure F long-bone lengths
+
+Taxon	Bone	mm	pixels	pixels/mm	Upgrade
+-------------------------------------------------------
+Diplodocus
+	femur	1542	864	0.5603		1.057
+	tibia	1006	596	0.5924		N/A
+Apatosaurus
+	femur	1785	1003	0.5619		1.054
+	tibia	1115	656	0.5883		1.007
+
+The highest resolution is 0.5924 (Diplodocus tibia) so we scale
+everything else up to the same resolution.
+
+1 m scalebar at 0.5924 pixels/mm = 592 mm
+
+		DONE
+
