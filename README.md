@@ -3,7 +3,7 @@
 **Mike Taylor <dino@miketaylor.org.uk>**  
 **Matt Wedel <mathew.wedel@gmail.com>**  
 
-This respository contains work on an ongoing paper about the rare views from above and below sauropods -- specifically, the Carnegie Museum's iconic holotypes
+This repository contains work on an ongoing paper about the rare views from above and below sauropods -- specifically, the Carnegie Museum's iconic holotypes
 _Diplodocus carnegii_ CM 84
 and
 _Apatosaurus louisae_ CM 3018,
