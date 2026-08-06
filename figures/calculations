@@ -1,0 +1,20 @@
+Figure E display board lengths
+
+Diplodocus:
+	Left	358
+	Right	352
+	Neck	369
+	AVERAGE	360
+
+Apatosaurus:
+	Left	388
+	Right	371
+	Neck	359
+	AVERAGE	373
+
+So to bring to the same scale,
+We must increase Diplodocus by 373/360 = 103.6%
+
+Diplodocus  torso is 1178 px long
+Apatosaurus torso is 1307 px long
+	=> Factor of 1307/1178 = 1.10950764006791171477
