@@ -15,3 +15,4 @@ All three show the Apatosaurus louisae holotype CM 3018 shot from below, and wer
 The first of these appeared in an SV-POW! post "Apatosaurus louisae from below" on 3 May 2022:
 https://svpow.com/2022/05/03/apatosaurus-louisae-from-below/
 
+After consultation with Matt, IMG_0832_stitch3.png is best.
