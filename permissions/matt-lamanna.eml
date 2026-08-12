@@ -1,0 +1,434 @@
+Delivered-To: sauropoda@gmail.com
+Received: by 2002:a0c:e94a:0:b0:907:b262:d72e with SMTP id n10csp1206854qvo;
+        Tue, 11 Aug 2026 15:45:40 -0700 (PDT)
+X-Received: by 2002:a05:690e:440a:20b0:668:9851:aa1 with SMTP id 956f58d0204a3-66b3484f68bmr264277d50.53.1786488340450;
+        Tue, 11 Aug 2026 15:45:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1786488340; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=ru9e/zERzHooTKh03W0Ruv4VvwRGH9xo7GmEmcJZOo0bWBscvDIb73Sz4MR5iTmQFn
+         NzFbQaKkl0aFq3nTY+pM/bQmvTOjAK4OVrpo2OK9rrAFOd/CWxXI/FJURvH4BaZm7WrF
+         b7agSzXC8ih517mrO0gzoVGJukEjEDNwW9Qchv1jHvuYQbbjVpRFKknmevbwfu0I15Ag
+         pXFIeP+NworCVoiYM3dv10sHs9TMMl/VUAz0mnTvxZP2/67P/1wPNc4hHR0EloaNsxf+
+         Fdqrie4TI5D9y1PygEoDg/dUKa4ddyJcUDzM0Rw8M5cs1Ph26590nZAp3xfFoshXK+ZX
+         2EBA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:cc:to
+         :from:dkim-signature;
+        bh=R2hUG/EV2gTvFsSwNhAHnXYWcc4nTypWEqbnhB5XHHo=;
+        fh=n5gxQ50yPWyS4zR4iRh1H71Z0TRVCE3bKziAepx5T0E=;
+        b=Fwl9U/tMOBfMEM6CbE6rC1sWEyFQ8lMI29kuGz4UoM5ZYeZw0093VqS4idkVl2rErS
+         vx2ah4hS8joaaNJ6CkUjNPpn/yeU9sDvOGs+hquHHomMWYnHTAGJeFZjc8TMqJZg+Vd6
+         EatxD4UTcsvvHKnrcwrSxViW1xg1z1YGk4PX+vxNV8h0555CuMji7aqqJNGwiQjW6Cyy
+         pQOry9gijez8K8B6q9lNZslh2H7Zp7yp+DIKwk/42RJh+yhb5GHFAhrpOdxDOy4pX7Oi
+         /GzPIgARAcc3tP3txYcKQpgX3r+LsWmw2DKsPk67VzYyDg3EHcWmIfLuDaEfjJviqEhO
+         a/Pg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@carnegiemnh.org header.s=selector2 header.b=baDk61G2;
+       arc=pass (i=1 spf=pass spfdomain=carnegiemnh.org dkim=pass dkdomain=carnegiemnh.org dmarc=pass fromdomain=carnegiemnh.org);
+       spf=pass (google.com: domain of lamannam@carnegiemnh.org designates 2a01:111:f403:c107::1 as permitted sender) smtp.mailfrom=lamannam@carnegiemnh.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=carnegiemnh.org
+Return-Path: <lamannam@carnegiemnh.org>
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azlp170120001.outbound.protection.outlook.com. [2a01:111:f403:c107::1])
+        by mx.google.com with ESMTPS id 956f58d0204a3-66b1ef97d3asi4699744d50.53.2026.08.11.15.45.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 15:45:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lamannam@carnegiemnh.org designates 2a01:111:f403:c107::1 as permitted sender) client-ip=2a01:111:f403:c107::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@carnegiemnh.org header.s=selector2 header.b=baDk61G2;
+       arc=pass (i=1 spf=pass spfdomain=carnegiemnh.org dkim=pass dkdomain=carnegiemnh.org dmarc=pass fromdomain=carnegiemnh.org);
+       spf=pass (google.com: domain of lamannam@carnegiemnh.org designates 2a01:111:f403:c107::1 as permitted sender) smtp.mailfrom=lamannam@carnegiemnh.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=carnegiemnh.org
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CrGpXm0Cuy9Dvy1/QG/u2wq6bBk4rMAIKGO7B7nNwwbIfc+Mj8CG26YWTT5CDyPEx8k8BVbY/4Fv2kJQio6phhyUa/QcNgla6sEAl4el1ZS+15u/1W7WYieEA0a1R71LLOxsm6VaWB9TlGdsfhNhqmkk2HswDyEQWGygcLH5u0BmN+flmCz2lTgh3E5BDtk7VoQIP5Zwch95hT0n3b3IUqV9OOUlsD77lIOqDZVohwIeKi1s+J188ZAe9SAlDFqWxwxpo+ffUzcSCG0NmdmzH5rF+U6d79/BbgUh4SHVcY8E859M0uM1i9TTSAQ2vij+JiduPBZSGb+5RJ8S2UUj/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R2hUG/EV2gTvFsSwNhAHnXYWcc4nTypWEqbnhB5XHHo=;
+ b=U2RnSsS783vJqIi8jKhQis2pPfYlXLlkzE/fOJaLDe/aJhZoYs+DXWNsl0l+Z5BrYHEGVAZ+oQwNsOVf5idTTi3WENDai6cPCOCPyDsiweE8aWgxaDPuKbXgYcz4260JmQwzNU0Yii0bZMIMCJjRT1x+R1znH0YzXHlgLy+eGDofyXIH3GuJzrUo4nxbqJa+4KlBPijxH0AQ+lcE7/NND1ynDYOrbmZcpQVhdGa1/j0wwARGG54S/CH5d5a/DUmPHbPZfN3R7qs0XXXn5gN3MfxM+kKq6Won3zKmFiZgpD6DqwbR04ht4TQoJ6Z2OwK2lB/mVD+YXfcTG8tWY70Y8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=carnegiemnh.org; dmarc=pass action=none
+ header.from=carnegiemnh.org; dkim=pass header.d=carnegiemnh.org; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=carnegiemnh.org;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R2hUG/EV2gTvFsSwNhAHnXYWcc4nTypWEqbnhB5XHHo=;
+ b=baDk61G2TS9h9cbcd/EqauZkQDJusMPwdVEUVI+yn7p94hcwTzAOv+cHnbdwKrFRXrwwVeOElg6Ahw+/WjN7S4vB8mMURA5l7OvxE7Sp+OrijXLmr5LNJngy8sYOeg+bmnIjpWZ0s+w4FEw3MC3AbxMvTSOFBsO6OFvs2CzLLfG9KhLnCM4VW2OIc365nCE1bVFr5T/uvQZTTqOdyKgJFgLWIklKg5ZzPFqowg4Pq7bVLjZw2E8HA+whN/49/canGjflIeKIKWeuru6jbIzV0CrDR85T6zjGvxDp+zw0IN5y5/ULptWDBUvw41TFD64vEYtb3zTQQxqC/e55LFSCQQ==
+Received: from BYAPR02MB4520.namprd02.prod.outlook.com (2603:10b6:a03:15::26)
+ by CH3PR02MB10132.namprd02.prod.outlook.com (2603:10b6:610:198::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Tue, 11 Aug
+ 2026 22:45:32 +0000
+Received: from BYAPR02MB4520.namprd02.prod.outlook.com
+ ([fe80::a4f5:7543:2d6:6b2]) by BYAPR02MB4520.namprd02.prod.outlook.com
+ ([fe80::a4f5:7543:2d6:6b2%4]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 22:45:32 +0000
+From: "Lamanna, Matthew" <lamannam@carnegiemnh.org>
+To: Mike Taylor <sauropoda@gmail.com>
+CC: Mathew Wedel <mathew.wedel@gmail.com>
+Subject: RE: FW: Display panels in Jurassic gallery
+Thread-Topic: FW: Display panels in Jurassic gallery
+Thread-Index:
+ AQHdJGz9hL+oY9tqiU2nbUxg/fs4draOus6AgAB+3ICAAMfAAIABFMqAgABJlrCAAAERoYAAAhx9gAAXeRCAAAjGAIAAAXKwgAAD3QCAAV2W8IAGlV6AgAAAbUA=
+Date: Tue, 11 Aug 2026 22:45:32 +0000
+Message-ID:
+ <BYAPR02MB4520DDF9346D07ADA2A292FBD8DD2@BYAPR02MB4520.namprd02.prod.outlook.com>
+References:
+ <CACnMvBbnXQFcsvsTA81MGLnNdCh6jtwnD-4ivYCSJS_f+Bn1WQ@mail.gmail.com>
+ <BYAPR02MB4520B0122FC934B765032E51D8D32@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <CACnMvBbr8Pz1Z3=u0ezkGcLoL82OSQKZR4734qE2aqzMUJdKQA@mail.gmail.com>
+ <BYAPR02MB45208A11EED297D970418CADD8D32@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <CACnMvBa_FGhAbd_Jsh_6YzWeZQ8f2JHXvke6puaWYLcQ-+VXRw@mail.gmail.com>
+ <BYAPR02MB45204625F09622F7E40A9A22D8D22@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <DM6PR02MB49083991C2FC4F9C5E93B6B0D5D22@DM6PR02MB4908.namprd02.prod.outlook.com>
+ <DM6PR02MB49085994B2FD94584EC31C15D5D22@DM6PR02MB4908.namprd02.prod.outlook.com>
+ <BYAPR02MB4520E0A07794FAE1C21D215AD8D22@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <CACnMvBZLj_-ai+yvJVAscmPJJAPmxanwTQRO=emk60waHttjOQ@mail.gmail.com>
+ <BYAPR02MB45208B03BCBC378DDF6CDF9ED8D22@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <CACnMvBb8EKdxkgwQMnOeaacnfbkiYibmZaTihoWQVUznV3WsBg@mail.gmail.com>
+ <BYAPR02MB4520DB8F35BA15415B51B62ED8D12@BYAPR02MB4520.namprd02.prod.outlook.com>
+ <CACnMvBbbnXOmpjC=HWWn-pwzh8+bJ-b2Oi796i7gKcNNHX6gzQ@mail.gmail.com>
+In-Reply-To:
+ <CACnMvBbbnXOmpjC=HWWn-pwzh8+bJ-b2Oi796i7gKcNNHX6gzQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=carnegiemnh.org;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BYAPR02MB4520:EE_|CH3PR02MB10132:EE_
+x-ms-office365-filtering-correlation-id: dd421a61-4429-4485-5ba8-08def7fa4015
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|41320700013|1800799024|376014|366016|786006|18002099003|4143699003|22082099003|8096899003|13003099007|38070700021|10067099003|56012099006;
+x-microsoft-antispam-message-info:
+ r0Myy8wYpkQDcrRwwdIDekIHns8pjJLj0RhoybWzm014yKiWWOuycZt4twnzqAyCMDNb6hR04G1Be2ROVccBf8cimDrEo253cAC2tbuYqQYmbngqJhbA1vsP23E2bTvsNFX+ZHqpr4PXRsZ6WsSNv6jRuiwOB78UETYYL3eHtg6Xlj/Du+tGno5tlUIS7OcAkll60lKIJ0pcFwt/M87OXckvhq3zFO0T5H+1vxZQmu4nmwboUI0wqZMFYgRL2QfJyWVpx4OwM0gqlRmtZ1+thUFz3UZQDaRruh/wBzun7XLDflNTW0iewbKfttt/4+XU993yQYnWivDFin1NbE5FmIKSlmS4w9OFv9CUJ0l4ZcUZFIJFydhZtrHm0ryIyFglqxdFQPr70KJLIqH+kSfQex0nJypBTUG+JFtHXnLWBdEuR8PtoF3naRajipcGFYwyGECeL9phTRkWZseaL6/rY0l53+VDKgyG4ePxSJ9TOaPNZfIzKdwdMRgnLODhg9goqqQUrr6Pj6eu8QFfWVM9cAKw1gC21gaclAeNnR+tkHfcyu5yJqgAc1JRRqfuS2woqraKrzVg7FlOCzavs8vBPsq9J39ADYhQoQLQX87wQkxnE0a9U0r4TEZYjAVmc/GZQJyMc0l6Jw8IKM+0dpkSq/zQyeutxevOq7aXhuBJqCM=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR02MB4520.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(41320700013)(1800799024)(376014)(366016)(786006)(18002099003)(4143699003)(22082099003)(8096899003)(13003099007)(38070700021)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?eE9BWkZZRFdwZnpBVzRXWi9rckJ1QXZxR3hlMWh5dWVTVm9rbndEOERjOUda?=
+ =?utf-8?B?cHlDOTFFTmkzRm1EZk9Od0ZEZVozRm43ODY2dlNucDU0M29HdUFWaTlENXNr?=
+ =?utf-8?B?aDN4MlRnL0xYblAwQlE2NXNrN1RqQW9YalFVRWhoUzRqNDlFWm5uUWg1ZDc5?=
+ =?utf-8?B?NDhaYlh5OGZYSFBWVXQ4bldraUdwNU1YVW5tZ05RSzB3TUdqVG82aFVUWHIw?=
+ =?utf-8?B?M2RYSC93YXh1b3c2dmpKc3RjbFh3Yi9PNjNJOGVQQU15RGxpRGdmZVFEdysr?=
+ =?utf-8?B?NkY3MVJTSnpLS2UzSVAzRGtHQzJkR05oYUhwOEpacDdSWEZaVU8ydUs1c21r?=
+ =?utf-8?B?Y2F6UlFyZW1aMmU2YjJzZEg3M1hhWVVDUnNJNFNzdjBqbnJ1Z0dJQXNQSC92?=
+ =?utf-8?B?UmdEZ3ZDL2p6Z2dtZkVWK2Zqb21vanpqUk1Ka3lUdDViNUhERHBrVkxJdFh3?=
+ =?utf-8?B?ZmFobGtEdXBVOUlKUnE4N2UxU01oUXdUTjQ5a2JjZ1dpOWNkQXVuY0xOMVlT?=
+ =?utf-8?B?bHdKazJKZCtSVktqNFlDSHM0d0ZUR0FEY0V3R0hpWUUySEdaeS9ITUx6STls?=
+ =?utf-8?B?YmlxdzY1Qk04b29XOENpK3dPVjFVVm5KcCtGWUtXK2pBU1RBRFY3dVRnRENP?=
+ =?utf-8?B?ZHlSejZ4Q01YUFlMQWRRL2g2YldXNWQ0M2g3RmRyU2FSQjFvU3NtUm5tbFlz?=
+ =?utf-8?B?ajFEd3B3QUZ2WWdXZXJLRFFTUXdveXAxVC8wOHFFOVhON0wyS1F1VVhnWHB0?=
+ =?utf-8?B?TE10WWxKS3FWcGZrdlNEM09ZZENPR0E1Q3pRSmVleWpvNCt2c1dKcnUrOUx0?=
+ =?utf-8?B?SUJQcVRXQzBIS3JTYWNzVkNtQWg2TThnREp5VmVucGY1Yzgvakx1REtRRENr?=
+ =?utf-8?B?R3l1T214anlZbXBKcnVpSGdnS1lyZEVUZENKSDdmcE1JU3luckFQR1NtbGk3?=
+ =?utf-8?B?YjhDMS85R1pKWE9TRGJISjNxeVZFWXoxUzZ3Y0dEUnloZWVwbGp1ZlRWK0lU?=
+ =?utf-8?B?cGl5NWtUWDBtUXNRNy9RMjhVbUxSYXQvQjlFYzFHYzBUbmpkQmZXUWlGaEZy?=
+ =?utf-8?B?c1JWc2h4NE1rV1Y0RGdSRFFteG0xT3IyaTNaZi9vb29QZGMzaGVYMGtlT25t?=
+ =?utf-8?B?NEh3bWpFSlZvV3dnZTFXV251RWlFMUpvYmxFMkp5ditoSXNVaCt0VGNUUWg4?=
+ =?utf-8?B?MWMxb1BFYjRQWEdrZEpLenlVUDZHdDdmVWkyeTFlU3RqRDdZMnpJOGJ3U0RF?=
+ =?utf-8?B?Qm85MDdvWjREZFlFMHpYYkJNNy8vRXd4RDVUTkxBY2xtNHg1SkVJTTNKRmhV?=
+ =?utf-8?B?UGxiQnBhMlpKOWt1Q0VISElvQkZwbzNabWhUa3N2TlNyQmlJL2hPd1pKSmR4?=
+ =?utf-8?B?anB1cDBJSmloTEJvbG5DWlNpZGExb01FZDRsVTlaYy9tQXNvUVdvUWxjN3RQ?=
+ =?utf-8?B?ZHV2ZEtYZDMrMWp5WTVpS24rRFZqT1d1a1dCcGlQSU44bXVVUlhlc2JBbmVI?=
+ =?utf-8?B?RFNrcGp5M0l0Y1JJcFVsSEt3YzAraGN2RWRVUTNWU3J2SHZpczRMM2NGYU84?=
+ =?utf-8?B?NEIzR1FSNTJDSUJiOG5idTJ0clBHcWV2NERqUnVoc2hTMytGcURVdW14Rzdl?=
+ =?utf-8?B?NEpXWkVHd3FDUFduRFZjZm1LMGs0VWwwK2pSTUtTQjR5S25UZ0o3YnZvQ1hC?=
+ =?utf-8?B?cGJmc0Q5Y01zNzNXSm83ejA5eHNObzRDVU5OL1pIdzlFUG5xSzdaUHgrRXVk?=
+ =?utf-8?B?T3NpZHZqRHBibFNNNmkvdXN3MzVpMGQ1djlpbVZYbmd4d0pGNktNLzZMejJL?=
+ =?utf-8?B?clphOERCdVpxdnNYT2tnMDI4R3lYVWlFdUt3MmpnSC9NVUZZYmJCNEJsdk5G?=
+ =?utf-8?B?dzhHVitxMzcxY2psNkw3cTZzTDZhTmtlOEZRN3VnUUNjVG1vd21kZmExbnFi?=
+ =?utf-8?B?RjNFakp3aGpJaThvcHY2SmF4bkxickQ2cGtLeEF5Tm0vQS9SbFRmQmEraThD?=
+ =?utf-8?B?NUplRDVNREtrdS90RUxPVnk3WGpsc3hoOXIyMGh6amR3UW80dHE5OFNQODli?=
+ =?utf-8?B?RHdCRHpOSlZUZVFMdzhDcXlRejVoZXJ2TkpuUDh4S2xWUmFpb2VJeVJwZ0Uy?=
+ =?utf-8?B?QTRLQnlVdzRHU0VMY3N0OFBRL25Lc3U1VzFsR3pkNHU2aCtBaU9IeHRuOG80?=
+ =?utf-8?B?ZFY1UzNxeEpCYkowTko4MlA0Q3NnYlB3d000bmF2UnNGMmxVdWNyRFJjY3NF?=
+ =?utf-8?B?b2hlcVFMb3hUeUpyb2gycGJjMUZyelJXRVhBNllIV2xqZFhTVVJsdzkrZVpl?=
+ =?utf-8?B?UVRrTVBTckpzcXB3TFdybVluS3IwTEJuY2hUa2lLRlk0bURTR3A0UT09?=
+MIME-Version: 1.0
+X-OriginatorOrg: carnegiemnh.org
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR02MB4520.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd421a61-4429-4485-5ba8-08def7fa4015
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Aug 2026 22:45:32.1789
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9b45694f-7f01-41cc-9f79-15bf5b9b2a16
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jOJ58y91sVQp+6gsGmFle8Wem+vFGaIKsrUHsnLHgFRI709EQf2IWC+lijD31/KUKZBFk2dkdOhTFQTRFoJfx9Z2XuqfymD3Ke7eFI7ZH54=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR02MB10132
+X-StripMime: Non-text section removed by stripmime
+Content-Type: text/plain; charset="utf-8"
+
+Hey Mike, have been meaning to get back to you, but Amanda re-measured yesterday morning and got the same result. She took a video to prove it üòâ. Please stand by for that email/video. I‚Äôll loop her in to ensure that you have her permission to cite the ca. 52 foot height (you have mine).
+
+(Fun fact: Amanda is the Carnegie‚Äôs head of exhibitions, and her brother is Stanford paleobotanist Andrew Leslie. He was an undergrad at Penn when I was a grad student, in the same tiny department. I swear I didn‚Äôt know this before I met her. What are the chances?!)
+
+--
+Matthew C. Lamanna, Ph.D. (he/him)
+Mary R. Dawson Curator
+Section of Vertebrate Paleontology
+Carnegie Museum of Natural History
+4400 Forbes Avenue
+Pittsburgh, PA 15213
+Office: (412) 578-2696
+Mobile: (412) 592-3361
+Email: lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>
+
+Museum webpage: https://carnegiemnh.org/research/matthew-lamanna/
+ResearchGate: https://www.researchgate.net/profile/Matthew_Lamanna
+Instagram: @mattlamanna
+Antarctic research: http://antarcticdinos.org<http://antarcticdinos.org/>
+Twitter: @antarcticdinos
+
+From: Mike Taylor <sauropoda@gmail.com>
+Sent: Tuesday, August 11, 2026 6:39 PM
+To: Lamanna, Matthew <lamannam@carnegiemnh.org>
+Cc: Mathew Wedel <mathew.wedel@gmail.com>
+Subject: Re: FW: Display panels in Jurassic gallery
+
+CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+As Matt and I have looked again at the photos and experimented with the field of view of his camera, we are increasingly inclined to accept that the maintenance balcony really might be as low as 15.8 m after all. Though it's shocking to think it was so relatively low when it felt so insanely high.
+
+Anyway, can I please have explicit permission from both you and Amanda to to cite this number, and the measurements of the display panels, as personal communications?
+
+Many thanks,
+
+-- Mike.
+
+
+On Fri, 7 Aug 2026 at 20:06, Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>> wrote:
+Hey guys, Amanda and I are pretty sure she measured correctly, but she‚Äôs gonna double-check on Monday just in case. (She knows which structure you‚Äôre interested in.) Please stay tuned.
+
+--
+Matthew C. Lamanna, Ph.D. (he/him)
+Mary R. Dawson Curator
+Section of Vertebrate Paleontology
+Carnegie Museum of Natural History
+4400 Forbes Avenue
+Pittsburgh, PA 15213
+Office: (412) 578-2696
+Mobile: (412) 592-3361
+Email: lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>
+
+Museum webpage: https://carnegiemnh.org/research/matthew-lamanna/
+ResearchGate: https://www.researchgate.net/profile/Matthew_Lamanna
+Instagram: @mattlamanna
+Antarctic research: http://antarcticdinos.org<http://antarcticdinos.org/>
+Twitter: @antarcticdinos
+
+From: Mike Taylor <sauropoda@gmail.com<mailto:sauropoda@gmail.com>>
+Sent: Thursday, August 6, 2026 5:15 PM
+To: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>
+Cc: Mathew Wedel <mathew.wedel@gmail.com<mailto:mathew.wedel@gmail.com>>
+Subject: Re: FW: Display panels in Jurassic gallery
+
+CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+Chatting with Matt, we don't think that measurement of the balcony height can possibly be right ‚Äî looking at the photos we took, it surely has to be significantly higher than the length of the Diplodocus (see attached).
+
+Might it be that Amanda lasered the wrong balcony? I know there's a whole sequence of WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+WARNING: bad base64 char -1 (ˇ)
+them ‚Äî see the second photo at https://svpow.com/2019/03/13/mounted-sauropods-in-dorsal-view/
+
+We were in the absolute topmost one ‚Äî we had to walk across part of the roof to get there!
+
+-- Mike.
+
+
+
+
+On Thu, 6 Aug 2026 at 22:05, Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>> wrote:
+You‚Äôre welcome, Mike üòä.
+
+--
+Matthew C. Lamanna, Ph.D. (he/him)
+Mary R. Dawson Curator
+Section of Vertebrate Paleontology
+Carnegie Museum of Natural History
+4400 Forbes Avenue
+Pittsburgh, PA 15213
+Office: (412) 578-2696
+Mobile: (412) 592-3361
+Email: lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>
+
+Museum webpage: https://carnegiemnh.org/research/matthew-lamanna/
+ResearchGate: https://www.researchgate.net/profile/Matthew_Lamanna
+Instagram: @mattlamanna
+Antarctic research: http://antarcticdinos.org<http://antarcticdinos.org/>
+Twitter: @antarcticdinos
+
+From: Mike Taylor <sauropoda@gmail.com<mailto:sauropoda@gmail.com>>
+Sent: Thursday, August 6, 2026 4:56 PM
+To: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>
+Cc: Mathew Wedel <mathew.wedel@gmail.com<mailto:mathew.wedel@gmail.com>>
+Subject: Re: FW: Display panels in Jurassic gallery
+
+CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+So, so helpful! Thank you!
+
+We will of course acknowledge all four of you.
+
+-- Mike
+
+
+On Thu, 6 Aug 2026 at 21:34, Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>> wrote:
+Hey Mike and Matt,
+
+Here are the dimensions you wanted, courtesy Amanda Walsh, Paul Molina, and Melissa Halstead in the Carnegie MNH‚Äôs Department of Exhibitions (I ran into them while I was measuring and they very kindly took over for me!):
+
+
+  *   It‚Äôs 51 feet 10 inches (= 15.7988 m) from the gallery floor to the bottom of the catwalk.
+
+
+  *   Each reader rail (the entire structure, not just the label panel embedded therein) is 60.125 inches (152.7175 cm) long X 26.375 inches (66.9925 cm) tall X 8.375 inches (21.2725 cm) deep.
+
+Hope this helps!
+M
+
+--
+Matthew C. Lamanna, Ph.D. (he/him)
+Mary R. Dawson Curator
+Section of Vertebrate Paleontology
+Carnegie Museum of Natural History
+4400 Forbes Avenue
+Pittsburgh, PA 15213
+Office: (412) 578-2696
+Mobile: (412) 592-3361
+Email: lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>
+
+Museum webpage: https://carnegiemnh.org/research/matthew-lamanna/
+ResearchGate: https://www.researchgate.net/profile/Matthew_Lamanna
+Instagram: @mattlamanna
+Antarctic research: http://antarcticdinos.org<http://antarcticdinos.org/>
+Twitter: @antarcticdinos
+
+From: Walsh, Amanda <WalshA@CarnegieMnh.Org<mailto:WalshA@CarnegieMnh.Org>>
+Sent: Thursday, August 6, 2026 3:02 PM
+To: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>; Nichols, Bill <NicholsB@CarnegieMuseums.Org<mailto:NicholsB@CarnegieMuseums.Org>>; Crawford, Sarah <CrawfordS@CarnegieMnh.Org<mailto:CrawfordS@CarnegieMnh.Org>>
+Subject: Re: Display panels in Jurassic gallery
+
+51‚Äô10‚Äù from floor to bottom of catwalk
+
+
+Amanda Walsh (she, her)
+
+Senior Manager of Exhibitions
+
+
+
+Carnegie Museum of Natural History
+
+4400 Forbes Avenue
+
+Pittsburgh PA 15213-4080
+
+
+
+Mobile 304 851 1614
+
+________________________________
+From: Walsh, Amanda <WalshA@CarnegieMnh.Org<mailto:WalshA@CarnegieMnh.Org>>
+Sent: Thursday, 06 August 2026 14:53:42
+To: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>; Nichols, Bill <NicholsB@CarnegieMuseums.Org<mailto:NicholsB@CarnegieMuseums.Org>>; Crawford, Sarah <CrawfordS@CarnegieMnh.Org<mailto:CrawfordS@CarnegieMnh.Org>>
+Subject: Re: Display panels in Jurassic gallery
+
+I can take a laser to go measure now. Will let you know.
+
+Thanks!
+
+Get Outlook for Mac<https://aka.ms/GetOutlookForMac>
+From: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>
+Date: Thursday, August 6, 2026 at 2:52‚ÄØPM
+To: Nichols, Bill <NicholsB@CarnegieMuseums.Org<mailto:NicholsB@CarnegieMuseums.Org>>; Crawford, Sarah <CrawfordS@CarnegieMnh.Org<mailto:CrawfordS@CarnegieMnh.Org>>; Walsh, Amanda <WalshA@CarnegieMnh.Org<mailto:WalshA@CarnegieMnh.Org>>
+Subject: FW: Display panels in Jurassic gallery
+
+Hey Bill, Sarah, and Amanda, a quick question from a couple colleagues/fellow dinosaur researchers: do you know how high above the gallery floor the catwalk above the Diplodocus and Apatosaurus (etc.) may be? Thanks! Matt
+
+
+
+--
+
+Matthew C. Lamanna, Ph.D. (he/him)
+
+Mary R. Dawson Curator
+
+Section of Vertebrate Paleontology
+
+Carnegie Museum of Natural History
+
+4400 Forbes Avenue
+
+Pittsburgh, PA 15213
+
+Office: (412) 578-2696
+
+Mobile: (412) 592-3361
+
+Email: lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>
+
+
+
+Museum webpage: https://carnegiemnh.org/research/matthew-lamanna/
+
+ResearchGate: https://www.researchgate.net/profile/Matthew_Lamanna
+
+Instagram: @mattlamanna
+
+Antarctic research: http://antarcticdinos.org<http://antarcticdinos.org/>
+
+Twitter: @antarcticdinos
+
+
+
+From: Mike Taylor <sauropoda@gmail.com<mailto:sauropoda@gmail.com>>
+Sent: Thursday, August 6, 2026 10:26 AM
+To: Lamanna, Matthew <lamannam@carnegiemnh.org<mailto:lamannam@carnegiemnh.org>>
+Cc: Mathew Wedel <mathew.wedel@gmail.com<mailto:mathew.wedel@gmail.com>>
+Subject: Re: Display panels in Jurassic gallery
+
+
+
+CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+
+Oh, and while I think of it ‚Äî do you happen to know how high above the gallery the maintenance balcony is?
+
+
+
+In the mean time, here is a red/cyan anaglyph of Diplodocus from above. I assume you have a cheap pair of 3d glasses to view it. Enjoy!
+
+
+
+-- Mike.
+
+
+
+The information contained in this message and/or attachments is intended only for the person or entity to which it is addressed and may contain confidential and/or privileged material. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon, this information by persons or entities other than the intended recipient is prohibited. If you received this in error, please contact the sender and delete the material from any system and destroy any copies. Any views expressed in this message are those of the individual sender.
+
+
+
+The information contained in this message and/or attachments is intended only for the person or entity to which it is addressed and may contain confidential and/or privileged material. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon, this information by persons or entities other than the intended recipient is prohibited. If you received this in error, please contact the sender and delete the material from any system and destroy any copies. Any views expressed in this message are those of the individual sender.
+
+
+
+The information contained in this message and/or attachments is intended only for the person or entity to which it is addressed and may contain confidential and/or privileged material. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon, this information by persons or entities other than the intended recipient is prohibited. If you received this in error, please contact the sender and delete the material from any system and destroy any copies. Any views expressed in this message are those of the individual sender.
+
+
+
+The information contained in this message and/or attachments is intended only for the person or entity to which it is addressed and may contain confidential and/or privileged material. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon, this information by persons or entities other than the intended recipient is prohibited. If you received this in error, please contact the sender and delete the material from any system and destroy any copies. Any views expressed in this message are those of the individual sender.
