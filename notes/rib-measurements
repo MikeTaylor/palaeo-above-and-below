@@ -34,5 +34,6 @@ The average rib of Apatosaurus is 1.21 times as long as in Diplodocus
 
 --
 
-Diplodocus D5 rib (1727 mm) is 1.12 times as long as the femur (1542)
-
+Diplodocus D5 rib (1727 mm) is 1.12 times as long as the femur (1542)\
+The femur is 913 pixels long in Figure F
+=> the rib should be 913 * 1.12 = 1023 pixels tall
