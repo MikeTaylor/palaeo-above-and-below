@@ -38,3 +38,4 @@ Diplodocus D5 rib (1727 mm) is 1.12 times as long as the femur (1542)\
 The femur is 913 pixels long in Figure F
 => the rib should be 913 * 1.12 = 1023 pixels tall
 And 1m scale bar should be 913 * 1000/1727 = 529 pixels long
+And the Apatosaurus rib 6 (2075 mm) should be 2075 * 529/1000 = 1098 pixels long
