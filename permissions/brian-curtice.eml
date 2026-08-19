@@ -1,0 +1,430 @@
+Delivered-To: sauropoda@gmail.com
+Received: by 2002:ad4:590e:0:b0:907:b262:d72e with SMTP id ez14csp287669qvb;
+        Wed, 19 Aug 2026 00:16:44 -0700 (PDT)
+X-Received: by 2002:a05:6214:27e6:b0:8ee:ff2e:c2f4 with SMTP id 6a1803df08f44-90c5eaa0614mr24524346d6.17.1787123804581;
+        Wed, 19 Aug 2026 00:16:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1787123804; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=YI7KdqCoI3x7+a0xduIpjjITpNEGuNIPWwrtk5XtBJAzOiXLdDfaOxR8GsY3hNZgJo
+         2e/bSfdsUd9VSkJ1UtXvM4rbHfE+DiwyD4cYtrk/XYdzDNZt2Qy/xCIJmIiRzLUPFrbY
+         YIYacbgfg6VIrhDTM5MFOsR8nE3gA60n/dFERp6X1lCiYOBOSI+UqikULLb3cx/XkPNR
+         I5m/9FnBqe8VuGrntcZcni/OJOov2QD5xyHrzLWxP/wMAIRgMKu4mnOYmPI1zS9hRrXn
+         xd8YGEqDRqIkryU7Wkcby73RMgIwOREsaQbIEH4lPhbw9aGCMp2e0ys7yNXXU5g5nhBk
+         cDFw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=I+reP/Re0W7xKbhcES0zCaz/SgHN1lY37Ifd3JZt+eA=;
+        fh=A69smhl2Z6fewo4j3ppPpCo2k/hk3vNn7/ZHpiqR7fM=;
+        b=E0RN/VH2PTFVVcIcFns7iAm4xuYzjRh4eye7OsgKEkubDOMiSkAzeZfOoGH8dYdZ1R
+         nbsFwzo1FpqjA08/Btm+yJ6MIgc8Sa4EjGDFyWaXqXJxiww+qSL9yGr4paVRro14T2/L
+         5WPbcTY1hDJn0Bn0gMMoQUsXm39RQCDtaEhgfWRpp8VreDzinUUZA/iUAya3fcH5upWk
+         Ef1KzugSBhCe28VYA1EqJ4+SnRmOTXv+pjc0r+tOR6ZducjlQzC0D42hoqtPIyW9OJMk
+         OTsBLBGmaHEFv/5Jop6kumsQdCqrsP4r3Tj7jfqB3lLUQXcG+PpKGgVkpynHjMdmcGnD
+         C31g==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@fossilcrates.com header.s=google header.b=sKvONVX6;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=brian@fossilcrates.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fossilcrates.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <brian@fossilcrates.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 6a1803df08f44-90c5eece176sor3238086d6.5.2026.08.19.00.16.44
+        for <sauropoda@gmail.com>
+        (Google Transport Security);
+        Wed, 19 Aug 2026 00:16:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@fossilcrates.com header.s=google header.b=sKvONVX6;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=brian@fossilcrates.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fossilcrates.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1787123804; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UfwpX9we4fgejXva/18KRKd/iab08dpX7eC5E5Qf1N4GCEV5OuLCZeS8okirX2p7yq
+         5PnprPOdu2NbVjLKl8Y7cbU0oLK6u0l2iGHQ11kWzVx51Bbi3xZ1u/TS18XARL35oxB2
+         C6piIFqIsTP/6RKT69SJ7VlgJOXd/onH/NKKE1xyLK8UoRdiu79Ka/84zXX3B8LEos/T
+         iXt7X+tdm3AX/jVE5WkCN5silKFc3bVF4X4/meu6U8p+bkTFOp1bpAsTkjSaTCm7pGDl
+         wVz1AfnNEEWhE3A3HqWdTLmhaCOuampRQGnhSfeSyPqOeZ8paB8TRpO6vXJ1wKeljwU5
+         MiDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=I+reP/Re0W7xKbhcES0zCaz/SgHN1lY37Ifd3JZt+eA=;
+        fh=A69smhl2Z6fewo4j3ppPpCo2k/hk3vNn7/ZHpiqR7fM=;
+        b=eFlu70SUDoAd8IOdk93uN2jdKzCsACrXKmnZXUKogK/oZaoTbnBGnvHAHGcO1ZUXi6
+         P866JswwhqrBVqKVfH8xJDpuQXV66S4PluFEE7W9QPhL/Nk5ZVfpaaWNi+PypMgGWIK+
+         VRwWbnwDlGSKEFbLCv6G6ZXnTAcnBejC/5zTOu5tAidYTH7kaSrUdm5r6l69wBnER72o
+         7WQMIlsRRB4uG1PoUXuKXjNiuGfH5AzPtPcbXbM7ptVrumFaSkl83EVem2TmOzFWiGJe
+         YzImz6203aJjKkW2k4OxSx3h+rACdZoM/86B78s4TMVOdR5uDig1l81s52MMadMmbz4X
+         zpLQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fossilcrates.com; s=google; t=1787123804; x=1787728604; dara=google.com;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=I+reP/Re0W7xKbhcES0zCaz/SgHN1lY37Ifd3JZt+eA=;
+        b=sKvONVX6pcrM5upbDEDY1qI/MAw+fWQ/qacG/S6xHyhXOUlowSLjsrCknc5l5NQXD0
+         yYPflK7+c9Wn0UdlsIv31SE7A3VLI2mkemz0ayuZ4b/myoA4qgMC3Y4DJi2srhwi9PdU
+         M41JMWa14OvsyWfXpapnK37Dp0LMy7HxWOFOgNcf+wS+Uy/e7hC1cbX6dK+k848RolYa
+         IYhpMGVRYLPNPOSJEIv+YsuShkohQ8EtsKxkUl/HKW1506z3MN+XYkP8KqpgnnYM8FG8
+         FBrNtC6mQd3X+DBymHZr8xysTUwiixZWh2NofGQn78WN3jhDHwwcq8WW+Z4WF6sxZ4QB
+         oSVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787123804; x=1787728604;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=I+reP/Re0W7xKbhcES0zCaz/SgHN1lY37Ifd3JZt+eA=;
+        b=eirrmlDiCjTHWNZGdOOW4IwPgYRQRYfkqYMTj2e1xdQV2kHlGBTeLiduBAMgkaKpq3
+         0h2IDmqRdOFHEM67cpajCSdtKZfZdPZxf/2YLYNjJBRsF/t74rgpOY0Uir+D3a7Psdtp
+         9wT9D/WiiAcy8uJgyuYo8+FtXBd4B/1pr5IJu1hGaJAp5PNxMxUfwvW2e+XXo/Vp5woK
+         qHhRVNAr2ZbSKF77cYLlDuIVb1mgS+q0P3sChszvgwhyXkkcs3jcGmjFfMvsigZnScYs
+         8RfFUrpzzDvqEUOOnho5FUMt14ZOcWR1JIWI8hMKecGZkfN2vvPM4KpiBAgkl1zdJ7SG
+         /dXQ==
+X-Gm-Message-State: AOJu0Ywqy+aWoTXEzyukkRTEHBOgKyzWpf3n+ww9P8NCFkOJ8rxTcHmo
+	SynPW1rDXX9Uu46rvdcbubE+/BZxL98uQ7+Am2SGpPJpxv5xbWgzd5k34F6kzeqa+qgnxL4ocZ8
+	3gVLVNumBL4Zq+x9gPdlDoRJNS/uFfrBA7TiB73f3mOAkGJPakde1BvPlzg==
+X-Gm-Gg: AR+sD13Dkaz6h0AXqcIIL5rJBue3ROPn2yHqOUgszWCiB/1rpuR52KoIBIHbakxe87S
+	QMrz4KLeQyU7yOWQS5h6jGDnqAAE83LPuczL6bXGKxYj63EHoGroHgufwgGMmA3jNf3nHMe/Vs9
+	rUN/Fdg1Ykw+gDtMH1wvi3zRHb4ESp9U/+OhfPw0R79uR3NWi7MOjr6q/aLM82zRY/d2ByPENjn
+	2hmP6Jx2FY81VED5Ng8IjF52UxCqIqqrkYUyO6v0rxwkz3SY+BeXkrljiMrMF//nzvtEz/nh/FI
+	1UGRuwLZoINF9I7mCA2umH8FGJBAse+WNdQLFHXCnIs/5bNMf2eCm7qTEmJpve7WaZLNUmG11S/
+	DXAB7/pvTxp5JVbDxFsrk4lpxFHm0wygqwAAkwmvXJCwDaDQ3w8pCgYJoYdmU8LJR8RPT2apKqB
+	m1BSQsfLQweGB9yFPbmckIB5TQpnZpsKHuRCnpjtwBIWde8+XVMNcMmZPLeswczUiSfM8jB5ES+
+	S4Vsb9BL0f6PoNac03XW1B0ujBt2l/i/woQFHkKHfM57eZu650jH16DmAOuR1s6qTmAtqCfBMoa
+	lY3cFu+zMQWQWaGCVrQfAcMTcBMsLEnn5CO3HA==
+X-Received: by 2002:a05:6214:1252:b0:8e8:199b:aad0 with SMTP id
+ 6a1803df08f44-90c5e713f3amr25225876d6.7.1787123803754; Wed, 19 Aug 2026
+ 00:16:43 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAOf8E3pWxVC7ATR48EsWqxNooCcjy-kQviqfOHUYLMWsQ=ZMgQ@mail.gmail.com>
+ <CADG7HNRH2=tdR4oLZ1uH+Jsyn=QT0paY_-1dHO4-G-JkVMO86w@mail.gmail.com>
+ <CAOf8E3rJMpRSXandy1E6hWBybRj3Tw4Jv2xb_78Civ7KQ1t3ug@mail.gmail.com>
+ <CADG7HNSMYOaoPqZWw9YBe=EYjBXR2uTE0FPvzuaM4JbnGbreXQ@mail.gmail.com>
+ <CAOf8E3oA7ge+W8Y5oqYaxAK-=QNs1FaJ=pVXB+tqg-X-B8Vd0g@mail.gmail.com>
+ <CADG7HNS8y9jkx1SZpN+cJCmGHjQqqW+tGswFKWZsGPO_qi45GA@mail.gmail.com>
+ <CAOf8E3q+SsndAJ0xqc-b-9_aQkuYn00is0=tQc1SwF-vg6Zw1A@mail.gmail.com>
+ <CAOf8E3odQBQ8TaKKHicyZ+H2+wwFJk9CZS-4bcoxA3QW-0zGgg@mail.gmail.com>
+ <CAOf8E3qcGqo1wemM5fq-avCeFVniEwcOddhkn3JbvWr_SuDm3g@mail.gmail.com>
+ <CAOf8E3qi14ayi+LjJKDoGmeqxTsji2Y3K6=gnjh_ktWBJbvjXw@mail.gmail.com>
+ <CADG7HNQ_7Lh9WMjrJJPEOUdPB5q+7ux2ug4K1E5tfeTYXvnTzA@mail.gmail.com>
+ <CACnMvBYM=OgoN409ChyMdWAktv98HmcTzgSMUB7Oup=a+ycVxA@mail.gmail.com>
+ <CAOf8E3o9n-hdBrxh8dae6b3eQ1jKztOwVgRPHGGrWE3fu9V6yw@mail.gmail.com> <CADG7HNQELukG5q061j03CG7v5cFjH9TW_bwYNoPS7cD09Dn2Pw@mail.gmail.com>
+In-Reply-To: <CADG7HNQELukG5q061j03CG7v5cFjH9TW_bwYNoPS7cD09Dn2Pw@mail.gmail.com>
+From: Brian Curtice <brian@fossilcrates.com>
+Date: Wed, 19 Aug 2026 09:16:32 +0200
+X-Gm-Features: AcwNN1VnbxkCkzg0fQzvmbYmt7-1XF5nl63Hi2i35RotLQ_fyNRE0cQIiT5DEu8
+Message-ID: <CAOf8E3p6PPCAuVgLPkaoc8MyfdfKEHbjpvW=-9O3j1sFXMfkvg@mail.gmail.com>
+Subject: Re: Humboldt
+To: Mathew Wedel <mathew.wedel@gmail.com>
+Cc: Mike Taylor <sauropoda@gmail.com>
+X-StripMime: Non-text section removed by stripmime
+Content-Type: text/plain; charset="UTF-8"
+
+Totally!
+
+And here are the “official” measurements. Andreas Rassuly and Cristy Lopez
+both helped measure them.
+
+Done with tape touching bones:
+Dicraeo bottom (rib tip to tip, outside to outside of bone) 865 mm. Almost
+2 cm gap to rib head pophyses (I have a video will try to send tonight).
+
+995 at widest part. Left rib was plaster but mirror of right. out to out.
+ “II C8L and R” is written on the bones
+
+Dippy rib 4 on mount
+965 tip to tip, out to out.
+1250mm thickest point, out to out
+
+Brach 146 rib 6 tip to tip eyeballed!  I have more pics and vids I can try
+and measure from.
+175 out to out total eyeball
+
+I failed to note the Dicraeo rib but it is the longest on the mount.
+
+I also took better video of the rib heads. Most of them (at least first 6)
+seem to have pneumaticity. They put it on specimens that they made, too,
+suggesting it was nigh ubiquitous.
+
+BC
+
+On Wed, Aug 19, 2026 at 8:47 AM Mathew Wedel <mathew.wedel@gmail.com> wrote:
+
+> Would the ribs be “girdled” in life by gastralia in any way?
+>>
+>
+> Depends on what you mean. The ribs would have been tethered to the sternum
+> by sternal ribs, which are ossified in birds but cartilaginous in most
+> other critters. IIRC it is now thought that the supposed gastralia of
+> Brontosaurus yahnapin were actually sternal ribs. Which leaves us I think
+> with just about zero good cases of ossified gastralia in sauropods.
+> Homologous structures may have been present as tendons or cartilage.
+>
+> As far as "girdled", the sternal ribs provide a direct mechanical linkage
+> between the distal ends of the dorsal ribs (at least the first few) and the
+> sternal plates. The gastralia sit caudal to the sternal ribs, embedded in
+> the abdominal wall muscles. The ribs are only constrained by the gastralia
+> in that all of these bones are embedded in the wall of the torso, and the
+> ventral profile of the torso has to meet up with the sternal plates
+> anteriorly and the distal ends of the pubes posteriorly, because those are
+> the skeletal anchors for the body wall muscles.
+>
+> Hope this helps!
+>
+> Best,
+>
+> Matt
+>
+>
+>>
+>> On Wed, Aug 19, 2026 at 12:10 AM Mike Taylor <sauropoda@gmail.com> wrote:
+>>
+>>> Hi, Brian. Can you please give explicit permission for me to cite these
+>>> measurements as a pers. comm.? Thanks!
+>>>
+>>> -- Mike.
+>>>
+>>>
+>>> On Mon, 17 Aug 2026 at 17:18, Mathew Wedel <mathew.wedel@gmail.com>
+>>> wrote:
+>>>
+>>>> Humboldt pod mount torso dimensions in the messages below.
+>>>>
+>>>
+>>>>
+>>>> Sent from my pocket supercomputer
+>>>>
+>>>> ---------- Forwarded message ---------
+>>>> From: Brian Curtice <brian@fossilcrates.com>
+>>>> Date: Mon, Aug 17, 2026 at 8:00 AM
+>>>> Subject: Re: Humboldt
+>>>> To: Mathew Wedel <mathew.wedel@gmail.com>
+>>>>
+>>>>
+>>>> And more accurate here
+>>>> DiCR .94 At mid
+>>>> .88 at distal
+>>>>
+>>>> DIPPY
+>>>> 1 AT DISTAL
+>>>> 1.18 at mid (def a mount choice with the fakeness)
+>>>>
+>>>> Nearly every mounted Giraffa rib has pneumatic holes. I shot what I
+>>>> could by backlighting is evil!
+>>>>
+>>>> Will look for some in collections tomorrow.
+>>>>
+>>>> We need a Saurosquad confab at these places with a shot list and
+>>>> specific missions before we go to maximize the first three days.  Then Day
+>>>> 4 is freestyle :-)
+>>>>
+>>>> BC
+>>>>
+>>>> Daniella says hi!  Veronica might be here Wed.
+>>>>
+>>>>
+>>>>
+>>>> On Mon, Aug 17, 2026 at 4:57 PM Brian Curtice <brian@fossilcrates.com>
+>>>> wrote:
+>>>>
+>>>>> https://poly.cam/capture/F74193E7-E220-4572-B796-562615FA9082
+>>>>>  A better measurement.
+>>>>>
+>>>>> On Mon, Aug 17, 2026 at 4:46 PM Brian Curtice <brian@fossilcrates.com>
+>>>>> wrote:
+>>>>>
+>>>>>> Brach: 1.75-1.9 (rib tips is the first and then maximum river
+>>>>>> expansion is the second)
+>>>>>>
+>>>>>> All of these are completely dicey, but they are directionally
+>>>>>> correct. I can probably get better measurements off of the scans I made.
+>>>>>>
+>>>>>> .9/1.03 Dicr
+>>>>>>
+>>>>>> 1.03-1.12 Dippy
+>>>>>>
+>>>>>>
+>>>>>> On Mon, Aug 17, 2026 at 4:39 PM Brian Curtice <brian@fossilcrates.com>
+>>>>>> wrote:
+>>>>>>
+>>>>>>> What is going on with the gigantic neural canals? What fills those?
+>>>>>>>
+>>>>>>> On Mon, Aug 17, 2026 at 4:06 PM Mathew Wedel <mathew.wedel@gmail.com>
+>>>>>>> wrote:
+>>>>>>>
+>>>>>>>> Cool, thanks.
+>>>>>>>>
+>>>>>>>> One more ask: assuming you get to get up close and personal with
+>>>>>>>> the mounts, knowing the torso breadth, as measured by max rib spread, of
+>>>>>>>> the three mounted skeletons would be handy. I realize it probably tells us
+>>>>>>>> more about mounting decisions than about biology, but the former are
+>>>>>>>> interesting, too. And to the extent that the mounts look natural, with no
+>>>>>>>> obvious Tornier-style dislocations, the torso breadth is probably at least
+>>>>>>>> in the ballpark.
+>>>>>>>>
+>>>>>>>> Thanks in advance, and no worries if it’s a bridge too far.
+>>>>>>>>
+>>>>>>>> Best,
+>>>>>>>>
+>>>>>>>> Matt
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> Sent from my pocket supercomputer
+>>>>>>>>
+>>>>>>>> On Sun, Aug 16, 2026 at 8:58 PM Brian Curtice <
+>>>>>>>> brian@fossilcrates.com> wrote:
+>>>>>>>>
+>>>>>>>>> 1- I shot a video and took a Polycam of a rib with a pneumatic
+>>>>>>>>> head. I hope the video is good enough to grab a screenshot as I took no
+>>>>>>>>> photo of it interns out…
+>>>>>>>>>
+>>>>>>>>> 2-They CT scanned them and published a “apneumatic” if I recall
+>>>>>>>>> correctly.  AFAIK tis only a tail. I will poke around (tis already on my
+>>>>>>>>> list to get extra studied for I think the caudals prob have been over
+>>>>>>>>> split…).
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> On Mon, Aug 17, 2026 at 2:46 AM Mathew Wedel <
+>>>>>>>>> mathew.wedel@gmail.com> wrote:
+>>>>>>>>>
+>>>>>>>>>> Oh, I had two thoughts almost the second I hit send on the last
+>>>>>>>>>> message:
+>>>>>>>>>>
+>>>>>>>>>> 1. AFAIK no-one has published any photos of the rib pneumaticity
+>>>>>>>>>> in Giraffatitan since Janensch 1950. He had a black-and-white photo of the
+>>>>>>>>>> front and back of the best (= most pneumatic) of the Giraffatitan dorsal
+>>>>>>>>>> ribs, but only that one. The rest are illustrated with line drawings. It
+>>>>>>>>>> occurred to me that we could have a Riggs 1904 situation here, wherein one
+>>>>>>>>>> sexy rib was figured back when to make the point, but other pneumatic ribs
+>>>>>>>>>> exist and have simply not been photographed. If so, you/we could do a
+>>>>>>>>>> sister paper to Taylor & Wedel (2023) on the pneumatic ribs of
+>>>>>>>>>> Brachiosaurus.
+>>>>>>>>>>
+>>>>>>>>>> 2. Is Wamweracaudia just a tail? Is there *any* other axial
+>>>>>>>>>> material? I don't recall seeing any, and I don't recall seeing any caudal
+>>>>>>>>>> pneumaticity in that tail. But If there's any other axial material --
+>>>>>>>>>> sacrals, ribs, whatever -- it would be real cool to know if its pneumatic.
+>>>>>>>>>> IIRC Wamweracaudia is coming out as a mamenchisaurid in some recent
+>>>>>>>>>> analyses, and at least some mamenchis had pneumatic caudal vertebrae and
+>>>>>>>>>> ribs.
+>>>>>>>>>>
+>>>>>>>>>> That's all for now. Enjoy your time there!
+>>>>>>>>>>
+>>>>>>>>>> Best,
+>>>>>>>>>>
+>>>>>>>>>> Matt
+>>>>>>>>>>
+>>>>>>>>>> On Mon, Aug 17, 2026 at 2:36 AM Brian Curtice <
+>>>>>>>>>> brian@fossilcrates.com> wrote:
+>>>>>>>>>>
+>>>>>>>>>>> Will do!!!!!
+>>>>>>>>>>>
+>>>>>>>>>>> I just looked at the Senckenberg mount, thinking I could resolve
+>>>>>>>>>>> it to genus in minutes via caudals. Nope… shellac, paint, plaster and
+>>>>>>>>>>> general lack of confidence about what is reconstructed left me hanging…
+>>>>>>>>>>> sigh.
+>>>>>>>>>>>
+>>>>>>>>>>> I truly need to finish my Blips blog “Bones Lost in Plain Signt”
+>>>>>>>>>>> and use Sumida’s CNN quote about Gus “anything painted and mounted is
+>>>>>>>>>>> unstudiable” during SVP ;-)
+>>>>>>>>>>>
+>>>>>>>>>>> On Mon, Aug 17, 2026 at 2:33 AM Mathew Wedel <
+>>>>>>>>>>> mathew.wedel@gmail.com> wrote:
+>>>>>>>>>>>
+>>>>>>>>>>>> Give my best to Daniela and Veronica Diez Diaz. I can't think
+>>>>>>>>>>>> of any urgent collections look-at needs, but I'll give'r a think and let
+>>>>>>>>>>>> you know if anything comes to mind.
+>>>>>>>>>>>>
+>>>>>>>>>>>> Best,
+>>>>>>>>>>>>
+>>>>>>>>>>>> Matt
+>>>>>>>>>>>>
+>>>>>>>>>>>> On Sun, Aug 16, 2026 at 4:47 PM Brian Curtice <
+>>>>>>>>>>>> brian@fossilcrates.com> wrote:
+>>>>>>>>>>>>
+>>>>>>>>>>>>> I am at the Humboldt all week. Anyone you want me to say hi to?
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: photo]
+>>>>>>>>>>>>> *Brian Curtice, PhD*
+>>>>>>>>>>>>> Founder and CEO, Fossil Crates
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> 480-280-7132| BCurtice@gmail.com
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> www.FossilCrates.com <http://www.fossilcrates.com/>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: facebook] <https://facebook.com/fossilcratesdrbc>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: instagram] <https://instagram.com/fossilcrates>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: youtube]
+>>>>>>>>>>>>> <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: 500px] <https://500px.com/bcurtice>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: twitter] <https://twitter.com/fossilcrates>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: App Banner Image] <https://www.fossilcrates.com/>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> [image: __tpx__]
+>>>>>>>>>>>>>
+>>>>>>>>>>>>
+>>>>>>>>>>>>
+>>>>>>>>>>>> --
+>>>>>>>>>>>> Mathew J. Wedel
+>>>>>>>>>>>> College of Osteopathic Medicine of the Pacific and
+>>>>>>>>>>>> College of Podiatric Medicine
+>>>>>>>>>>>> Western University of Health Sciences
+>>>>>>>>>>>> 309 E. Second Street
+>>>>>>>>>>>> Pomona, CA 91766-1854
+>>>>>>>>>>>> https://sauroposeidon.wordpress.com/
+>>>>>>>>>>>> https://svpow.com/
+>>>>>>>>>>>>
+>>>>>>>>>>>> "Mastery is the best goal because the rich can't buy it, the
+>>>>>>>>>>>> impatient can't rush it, the privileged can't inherit it, and nobody can
+>>>>>>>>>>>> steal it. You can only earn it through hard work. Mastery is the ultimate
+>>>>>>>>>>>> status."
+>>>>>>>>>>>> - Derek Sivers
+>>>>>>>>>>>>
+>>>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> --
+>>>>>>>>>> Mathew J. Wedel
+>>>>>>>>>> College of Osteopathic Medicine of the Pacific and
+>>>>>>>>>> College of Podiatric Medicine
+>>>>>>>>>> Western University of Health Sciences
+>>>>>>>>>> 309 E. Second Street
+>>>>>>>>>> Pomona, CA 91766-1854
+>>>>>>>>>> https://sauroposeidon.wordpress.com/
+>>>>>>>>>> https://svpow.com/
+>>>>>>>>>>
+>>>>>>>>>> "Mastery is the best goal because the rich can't buy it, the
+>>>>>>>>>> impatient can't rush it, the privileged can't inherit it, and nobody can
+>>>>>>>>>> steal it. You can only earn it through hard work. Mastery is the ultimate
+>>>>>>>>>> status."
+>>>>>>>>>> - Derek Sivers
+>>>>>>>>>>
+>>>>>>>>>
+>
+> --
+> Mathew J. Wedel
+> College of Osteopathic Medicine of the Pacific and
+> College of Podiatric Medicine
+> Western University of Health Sciences
+> 309 E. Second Street
+> Pomona, CA 91766-1854
+> https://sauroposeidon.wordpress.com/
+> https://svpow.com/
+>
+> "Mastery is the best goal because the rich can't buy it, the impatient
+> can't rush it, the privileged can't inherit it, and nobody can steal it.
+> You can only earn it through hard work. Mastery is the ultimate status."
+> - Derek Sivers
+>
