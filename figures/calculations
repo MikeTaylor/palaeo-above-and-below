@@ -41,3 +41,22 @@ everything else up to the same resolution.
 
 		DONE
 
+
+----------------
+
+Figure F recalculation.
+
+Taxon	Bone	mm	pixels	pixels/mm
+-----------------------------------------
+Diplodocus	
+	rib	1727	1023	0.5924
+	femur	1542	913	0.5921
+	tibia	1006	596	0.5924
+Apatosaurus
+	rib	2075	1098	0.5292
+	femur	1785	1057	0.5922
+	tibia	1115	661	0.5928
+
+
+These are all OK except the Apatosaurus rib, which needs to growe by a
+factor of 0.5924/0.5292 = 1.1196 = 111.96%.
